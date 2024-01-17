@@ -1,6 +1,8 @@
 import 'package:conversify/components/text_field.dart';
 import 'package:flutter/material.dart';
 
+import '../components/button.dart';
+import '../components/get_theme.dart';
 import '../widgets/app_logo.dart';
 
 class LoginPage extends StatefulWidget {
@@ -11,14 +13,22 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  bool _isObscured = false;
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _pwdController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ConversifyLogo(),
+            const ConversifyLogo(),
+            const SizedBox(
+              height: 20,
+            ),
             ConversifyTextField(
               suffixWidget: Icon(
                 Icons.email,
@@ -26,6 +36,37 @@ class _LoginPageState extends State<LoginPage> {
               ),
               hintText: 'Email',
               textInputType: TextInputType.emailAddress,
+              isObscured: false,
+              textEditingController: _emailController,
+            ),
+            ConversifyTextField(
+              suffixWidget: IconButton(
+                onPressed: () {
+                  setState(() {
+                    _isObscured = !_isObscured;
+                  });
+                },
+                icon: Icon(
+                  (_isObscured == true)
+                      ? Icons.visibility_off
+                      : Icons.visibility,
+                  color: getTheme(context).primary,
+                ),
+              ),
+              hintText: 'Password',
+              textInputType: TextInputType.text,
+              isObscured: _isObscured,
+              textEditingController: _pwdController,
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            const SizedBox(
+              width: double.infinity,
+              child: ConversifyButton(
+                buttonText: 'L O G I N',
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ],
         ),

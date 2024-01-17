@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../components/get_theme.dart';
 import '../components/text_scale_factor.dart';
 import '../constants/constants.dart';
 
@@ -14,8 +15,8 @@ class ConversifyLogo extends StatelessWidget {
         children: [
           Icon(
             Icons.message_outlined,
-            size: 60,
-            color: Theme.of(context).colorScheme.primary,
+            size: 100,
+            color: getTheme(context).primary,
           ),
           const SizedBox(
             height: 20,
@@ -25,7 +26,7 @@ class ConversifyLogo extends StatelessWidget {
             style: TextStyle(
               fontSize: 16,
               height: 1.5,
-              color: Theme.of(context).colorScheme.inversePrimary,
+              color: getTheme(context).inversePrimary,
             ),
             textAlign: TextAlign.center,
             textScaleFactor: getTextScaleFactor(context),
