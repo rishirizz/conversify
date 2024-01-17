@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 ThemeData conversifyLightMode = ThemeData(
+  useMaterial3: true,
   colorScheme: ColorScheme.light(
     background: Colors.grey.shade300,
     primary: Colors.grey.shade500,

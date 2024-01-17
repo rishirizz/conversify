@@ -14,6 +14,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: conversifyLightMode,
+      debugShowCheckedModeBanner: false,
+      
       home: const LoginPage(),
     );
   }
