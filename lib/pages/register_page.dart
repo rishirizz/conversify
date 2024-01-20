@@ -3,20 +3,23 @@ import 'package:flutter/material.dart';
 
 import '../components/button.dart';
 import '../components/get_theme.dart';
-import '../widgets/app_logo.dart';
+import '../components/text_scale_factor.dart';
+import '../constants/constants.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
-  static const routeName = '/login';
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({super.key});
+  static const routeName = '/register';
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   bool _isObscured = false;
+  bool _isObscuredTwo = false;
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _pwdController = TextEditingController();
+  final TextEditingController _confirmPwdController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +29,17 @@ class _LoginPageState extends State<LoginPage> {
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const ConversifyLogo(),
+            Text(
+              kRegistrationText,
+              style: TextStyle(
+                fontSize: 20,
+                height: 1.5,
+                fontWeight: FontWeight.bold,
+                color: getTheme(context).inversePrimary,
+              ),
+              textAlign: TextAlign.center,
+              textScaleFactor: getTextScaleFactor(context),
+            ),
             const SizedBox(
               height: 20,
             ),
@@ -59,13 +72,32 @@ class _LoginPageState extends State<LoginPage> {
               isObscured: _isObscured,
               textEditingController: _pwdController,
             ),
+            ConversifyTextField(
+              suffixWidget: IconButton(
+                onPressed: () {
+                  setState(() {
+                    _isObscuredTwo = !_isObscuredTwo;
+                  });
+                },
+                icon: Icon(
+                  (_isObscured == true)
+                      ? Icons.visibility_off
+                      : Icons.visibility,
+                  color: getTheme(context).primary,
+                ),
+              ),
+              hintText: 'Confirm Password',
+              textInputType: TextInputType.text,
+              isObscured: _isObscuredTwo,
+              textEditingController: _confirmPwdController,
+            ),
             const SizedBox(
               height: 20,
             ),
             const SizedBox(
               width: double.infinity,
               child: ConversifyButton(
-                buttonText: 'L O G I N',
+                buttonText: 'R E G I S T E R',
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -77,7 +109,7 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Not a Conversifier? ',
+                  'Already a Conversifier? ',
                   style: TextStyle(
                     fontSize: 14,
                     height: 1.5,
@@ -87,7 +119,7 @@ class _LoginPageState extends State<LoginPage> {
                 GestureDetector(
                   onTap: () {},
                   child: Text(
-                    'Register Now',
+                    'Login',
                     style: TextStyle(
                       fontSize: 14,
                       height: 1.5,
