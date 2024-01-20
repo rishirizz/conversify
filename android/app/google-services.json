@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "357014774233",
+    "project_id": "conversify-88c3a",
+    "storage_bucket": "conversify-88c3a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357014774233:android:ae807b418db85d432679c8",
+        "android_client_info": {
+          "package_name": "com.example.conversify"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDoabmxCw3DXR1c3T1wxPavkp__pccCXvc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

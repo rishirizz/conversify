@@ -1,4 +1,5 @@
 import 'package:conversify/components/text_field.dart';
+import 'package:conversify/pages/register_page.dart';
 import 'package:flutter/material.dart';
 
 import '../components/button.dart';
@@ -76,7 +77,12 @@ class _LoginPageState extends State<LoginPage> {
             LoginAndRegisterFooter(
               footerText: 'Not a Conversifier? ',
               intentText: 'Register Now',
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(
+                  context,
+                  RegisterPage.routeName,
+                );
+              },
             ),
           ],
         ),

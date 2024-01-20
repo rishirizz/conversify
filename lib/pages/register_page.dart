@@ -1,4 +1,5 @@
 import 'package:conversify/components/text_field.dart';
+import 'package:conversify/pages/login_page.dart';
 import 'package:flutter/material.dart';
 
 import '../components/button.dart';
@@ -81,7 +82,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   });
                 },
                 icon: Icon(
-                  (_isObscured == true)
+                  (_isObscuredTwo == true)
                       ? Icons.visibility_off
                       : Icons.visibility,
                   color: getTheme(context).primary,
@@ -105,10 +106,15 @@ class _RegisterPageState extends State<RegisterPage> {
             const SizedBox(
               height: 20,
             ),
-             LoginAndRegisterFooter(
+            LoginAndRegisterFooter(
               footerText: 'Already a Conversifier? ',
               intentText: 'Login',
-              onTap: (){},
+              onTap: () {
+                Navigator.pushNamed(
+                  context,
+                  LoginPage.routeName,
+                );
+              },
             ),
           ],
         ),
