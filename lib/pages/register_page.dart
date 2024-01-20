@@ -5,6 +5,7 @@ import '../components/button.dart';
 import '../components/get_theme.dart';
 import '../components/text_scale_factor.dart';
 import '../constants/constants.dart';
+import '../widgets/login_and_register_footer.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -104,31 +105,10 @@ class _RegisterPageState extends State<RegisterPage> {
             const SizedBox(
               height: 20,
             ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'Already a Conversifier? ',
-                  style: TextStyle(
-                    fontSize: 14,
-                    height: 1.5,
-                    color: getTheme(context).inversePrimary,
-                  ),
-                ),
-                GestureDetector(
-                  onTap: () {},
-                  child: Text(
-                    'Login',
-                    style: TextStyle(
-                      fontSize: 14,
-                      height: 1.5,
-                      color: getTheme(context).inversePrimary,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              ],
+             LoginAndRegisterFooter(
+              footerText: 'Already a Conversifier? ',
+              intentText: 'Login',
+              onTap: (){},
             ),
           ],
         ),

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../components/button.dart';
 import '../components/get_theme.dart';
 import '../widgets/app_logo.dart';
+import '../widgets/login_and_register_footer.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -72,31 +73,10 @@ class _LoginPageState extends State<LoginPage> {
             const SizedBox(
               height: 20,
             ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'Not a Conversifier? ',
-                  style: TextStyle(
-                    fontSize: 14,
-                    height: 1.5,
-                    color: getTheme(context).inversePrimary,
-                  ),
-                ),
-                GestureDetector(
-                  onTap: () {},
-                  child: Text(
-                    'Register Now',
-                    style: TextStyle(
-                      fontSize: 14,
-                      height: 1.5,
-                      color: getTheme(context).inversePrimary,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              ],
+            LoginAndRegisterFooter(
+              footerText: 'Not a Conversifier? ',
+              intentText: 'Register Now',
+              onTap: () {},
             ),
           ],
         ),
