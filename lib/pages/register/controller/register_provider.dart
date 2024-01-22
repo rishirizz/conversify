@@ -1,5 +1,3 @@
-import 'package:conversify/pages/login/view/login_page.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class RegisterModuleProvider extends ChangeNotifier {
@@ -15,59 +13,59 @@ class RegisterModuleProvider extends ChangeNotifier {
     String email,
     String pwd,
   ) async {
-    final form = signUpFormKey.currentState;
-    if (form != null) {
-      if (form.validate()) {
-        form.save();
-        _isAPICallProcess = true;
-        await Future.delayed(const Duration(milliseconds: 100), () {});
-        notifyListeners();
-        try {
-          await FirebaseAuth.instance
-              .createUserWithEmailAndPassword(email: email, password: pwd)
-              .then((_) {
-            _isAPICallProcess = false;
-            Future.delayed(const Duration(milliseconds: 100), () {});
-            notifyListeners();
-            SnackBar snackBar = const SnackBar(
-              content:
-                  Text('kudos! Your account has been created successfully.'),
-            );
-            ScaffoldMessenger.of(scaffoldKey.currentContext!)
-                .showSnackBar(snackBar);
-            Navigator.pushNamedAndRemoveUntil(
-                context, LoginPage.routeName, (r) => false);
-          });
-        } on FirebaseAuthException catch (e) {
-          if (e.code == 'weak-password') {
-            _isAPICallProcess = false;
-            Future.delayed(const Duration(milliseconds: 100), () {});
-            notifyListeners();
-            debugPrint('The password provided is too weak.');
-            SnackBar snackBar = const SnackBar(
-              content: Text('The password provided is too weak.'),
-            );
-            ScaffoldMessenger.of(scaffoldKey.currentContext!)
-                .showSnackBar(snackBar);
-          } else if (e.code == 'email-already-in-use') {
-            _isAPICallProcess = false;
-            Future.delayed(const Duration(milliseconds: 100), () {});
-            notifyListeners();
-            debugPrint('The account already exists for that email.');
-            SnackBar snackBar = const SnackBar(
-              content: Text('The account already exists for that email.'),
-            );
-            ScaffoldMessenger.of(scaffoldKey.currentContext!)
-                .showSnackBar(snackBar);
-          }
-        } catch (e) {
-          debugPrint(e.toString());
-        } finally {
-          _isAPICallProcess = false;
-          notifyListeners();
-        }
-      }
-    }
+    // final form = signUpFormKey.currentState;
+    // if (form != null) {
+    //   if (form.validate()) {
+    //     form.save();
+    //     _isAPICallProcess = true;
+    //     await Future.delayed(const Duration(milliseconds: 100), () {});
+    //     notifyListeners();
+    //     try {
+    //       await FirebaseAuth.instance
+    //           .createUserWithEmailAndPassword(email: email, password: pwd)
+    //           .then((_) {
+    //         _isAPICallProcess = false;
+    //         Future.delayed(const Duration(milliseconds: 100), () {});
+    //         notifyListeners();
+    //         SnackBar snackBar = const SnackBar(
+    //           content:
+    //               Text('kudos! Your account has been created successfully.'),
+    //         );
+    //         ScaffoldMessenger.of(scaffoldKey.currentContext!)
+    //             .showSnackBar(snackBar);
+    //         Navigator.pushNamedAndRemoveUntil(
+    //             context, LoginPage.routeName, (r) => false);
+    //       });
+    //     } on FirebaseAuthException catch (e) {
+    //       if (e.code == 'weak-password') {
+    //         _isAPICallProcess = false;
+    //         Future.delayed(const Duration(milliseconds: 100), () {});
+    //         notifyListeners();
+    //         debugPrint('The password provided is too weak.');
+    //         SnackBar snackBar = const SnackBar(
+    //           content: Text('The password provided is too weak.'),
+    //         );
+    //         ScaffoldMessenger.of(scaffoldKey.currentContext!)
+    //             .showSnackBar(snackBar);
+    //       } else if (e.code == 'email-already-in-use') {
+    //         _isAPICallProcess = false;
+    //         Future.delayed(const Duration(milliseconds: 100), () {});
+    //         notifyListeners();
+    //         debugPrint('The account already exists for that email.');
+    //         SnackBar snackBar = const SnackBar(
+    //           content: Text('The account already exists for that email.'),
+    //         );
+    //         ScaffoldMessenger.of(scaffoldKey.currentContext!)
+    //             .showSnackBar(snackBar);
+    //       }
+    //     } catch (e) {
+    //       debugPrint(e.toString());
+    //     } finally {
+    //       _isAPICallProcess = false;
+    //       notifyListeners();
+    //     }
+    //   }
+    // }
   }
 
   // getAppCustomers() async {
