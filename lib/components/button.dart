@@ -4,9 +4,11 @@ import 'package:flutter/material.dart';
 class ConversifyButton extends StatelessWidget {
   final String buttonText;
   final FontWeight fontWeight;
+  final VoidCallback? onPressed;
   const ConversifyButton({
     required this.buttonText,
     required this.fontWeight,
+    required this.onPressed,
     super.key,
   });
 
@@ -15,6 +17,7 @@ class ConversifyButton extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
       child: ElevatedButton(
+        onPressed: onPressed,
         child: Padding(
           padding: const EdgeInsets.all(15.0),
           child: Text(
@@ -25,7 +28,6 @@ class ConversifyButton extends StatelessWidget {
             ),
           ),
         ),
-        onPressed: () {},
       ),
     );
   }

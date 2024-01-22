@@ -1,5 +1,5 @@
 import 'package:conversify/components/text_field.dart';
-import 'package:conversify/pages/register_page.dart';
+import 'package:conversify/pages/register/view/register_page.dart';
 import 'package:flutter/material.dart';
 
 import '../components/button.dart';
@@ -41,6 +41,7 @@ class _LoginPageState extends State<LoginPage> {
               textInputType: TextInputType.emailAddress,
               isObscured: false,
               textEditingController: _emailController,
+              validator: (val) {},
             ),
             ConversifyTextField(
               suffixWidget: IconButton(
@@ -60,15 +61,17 @@ class _LoginPageState extends State<LoginPage> {
               textInputType: TextInputType.text,
               isObscured: _isObscured,
               textEditingController: _pwdController,
+              validator: (val) {},
             ),
             const SizedBox(
               height: 20,
             ),
-            const SizedBox(
+            SizedBox(
               width: double.infinity,
               child: ConversifyButton(
                 buttonText: 'L O G I N',
                 fontWeight: FontWeight.bold,
+                onPressed: () {},
               ),
             ),
             const SizedBox(

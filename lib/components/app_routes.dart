@@ -1,5 +1,5 @@
 import 'package:conversify/pages/login_page.dart';
-import 'package:conversify/pages/register_page.dart';
+import 'package:conversify/pages/register/view/register_page.dart';
 import 'package:flutter/material.dart';
 
 class AppPageRouter {

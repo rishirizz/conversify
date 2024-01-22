@@ -7,12 +7,14 @@ class ConversifyTextField extends StatelessWidget {
   final TextInputType textInputType;
   final bool isObscured;
   final TextEditingController textEditingController;
+  final String? Function(String?)? validator;
   const ConversifyTextField({
     required this.suffixWidget,
     required this.hintText,
     required this.textInputType,
     required this.isObscured,
     required this.textEditingController,
+    required this.validator,
     super.key,
   });
 
@@ -23,7 +25,7 @@ class ConversifyTextField extends StatelessWidget {
         vertical: 10.0,
         horizontal: 20.0,
       ),
-      child: TextField(
+      child: TextFormField(
         controller: textEditingController,
         obscureText: isObscured,
         keyboardType: textInputType,
@@ -43,6 +45,7 @@ class ConversifyTextField extends StatelessWidget {
             ),
           ),
         ),
+        validator: validator,
       ),
     );
   }
