@@ -1,3 +1,4 @@
+import 'package:conversify/pages/login/controller/login_provider.dart';
 import 'package:conversify/pages/register/controller/register_provider.dart';
 import 'package:conversify/pages/register/view/register_page.dart';
 import 'package:conversify/themes/theme.dart';
@@ -5,7 +6,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'components/app_routes.dart';
+import 'utilities/app_routes.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,6 +23,9 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           create: (BuildContext context) => RegisterModuleProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (BuildContext context) => LoginModuleProvider(),
         ),
       ],
       child: MaterialApp(

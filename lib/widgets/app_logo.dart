@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../components/get_theme.dart';
-import '../components/text_scale_factor.dart';
+import '../utilities/get_theme.dart';
+import '../utilities/text_scale_factor.dart';
 import '../constants/constants.dart';
 
 class ConversifyLogo extends StatelessWidget {

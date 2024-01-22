@@ -2,7 +2,7 @@ import 'package:conversify/pages/login/view/login_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class RegisterModuleProvider extends ChangeNotifier {
+class LoginModuleProvider extends ChangeNotifier {
   bool _isAPICallProcess = false;
 
   ////[Getters]/////

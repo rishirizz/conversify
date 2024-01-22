@@ -1,12 +1,13 @@
 import 'package:conversify/components/text_field.dart';
-import 'package:conversify/pages/login_page.dart';
+import 'package:conversify/pages/login/view/login_page.dart';
 import 'package:conversify/pages/register/controller/register_provider.dart';
+import 'package:conversify/utilities/validators.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../components/button.dart';
-import '../../../components/get_theme.dart';
-import '../../../components/text_scale_factor.dart';
+import '../../../utilities/get_theme.dart';
+import '../../../utilities/text_scale_factor.dart';
 import '../../../constants/constants.dart';
 import '../../../widgets/login_and_register_footer.dart';
 
@@ -61,13 +62,14 @@ class _RegisterPageState extends State<RegisterPage> {
                 textInputType: TextInputType.emailAddress,
                 isObscured: false,
                 textEditingController: _emailController,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter the email to proceed.';
-                  } else {
-                    return null;
-                  }
-                },
+                validator: validateEmail(_emailController.text),
+                // (value) {
+                //   if (value == null || value.isEmpty) {
+                //     return 'Please enter the email to proceed.';
+                //   } else {
+                //     return null;
+                //   }
+                // },
               ),
               ConversifyTextField(
                 suffixWidget: IconButton(
@@ -87,15 +89,16 @@ class _RegisterPageState extends State<RegisterPage> {
                 textInputType: TextInputType.text,
                 isObscured: _isObscured,
                 textEditingController: _pwdController,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter your password.';
-                  } else if (value.length < 6) {
-                    return 'Password is too short';
-                  } else {
-                    return null;
-                  }
-                },
+                validator: validatePassword(_pwdController.text),
+                // (value) {
+                //   if (value == null || value.isEmpty) {
+                //     return 'Please enter your password.';
+                //   } else if (value.length < 6) {
+                //     return 'Password is too short';
+                //   } else {
+                //     return null;
+                //   }
+                // },
               ),
               ConversifyTextField(
                 suffixWidget: IconButton(
@@ -115,13 +118,13 @@ class _RegisterPageState extends State<RegisterPage> {
                 textInputType: TextInputType.text,
                 isObscured: _isObscuredTwo,
                 textEditingController: _confirmPwdController,
-                validator: (value) {
-                  if (_confirmPwdController.text != _pwdController.text) {
-                    return 'The passwords don\'t match.';
-                  } else {
-                    return null;
-                  }
-                },
+                validator: validateConfirmPassword(
+                    _confirmPwdController.text, _pwdController.text),
+                // if (_confirmPwdController.text != _pwdController.text) {
+                //   return 'The passwords don\'t match.';
+                // } else {
+                //   return null;
+                // }
               ),
               const SizedBox(
                 height: 20,

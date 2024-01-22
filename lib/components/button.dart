@@ -1,4 +1,4 @@
-import 'package:conversify/components/get_theme.dart';
+import 'package:conversify/utilities/get_theme.dart';
 import 'package:flutter/material.dart';
 
 class ConversifyButton extends StatelessWidget {

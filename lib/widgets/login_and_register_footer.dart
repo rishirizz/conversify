@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../components/get_theme.dart';
+import '../utilities/get_theme.dart';
 
 class LoginAndRegisterFooter extends StatelessWidget {
   final String footerText;

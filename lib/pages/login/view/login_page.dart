@@ -1,11 +1,12 @@
 import 'package:conversify/components/text_field.dart';
 import 'package:conversify/pages/register/view/register_page.dart';
+import 'package:conversify/utilities/validators.dart';
 import 'package:flutter/material.dart';
 
-import '../components/button.dart';
-import '../components/get_theme.dart';
-import '../widgets/app_logo.dart';
-import '../widgets/login_and_register_footer.dart';
+import '../../../components/button.dart';
+import '../../../utilities/get_theme.dart';
+import '../../../widgets/app_logo.dart';
+import '../../../widgets/login_and_register_footer.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -41,7 +42,14 @@ class _LoginPageState extends State<LoginPage> {
               textInputType: TextInputType.emailAddress,
               isObscured: false,
               textEditingController: _emailController,
-              validator: (val) {},
+              validator: validateEmail(_emailController.text),
+              //  (value) {
+              //   if (value == null || value.isEmpty) {
+              //     return 'Please enter the email to proceed.';
+              //   } else {
+              //     return null;
+              //   }
+              // },
             ),
             ConversifyTextField(
               suffixWidget: IconButton(
@@ -61,7 +69,16 @@ class _LoginPageState extends State<LoginPage> {
               textInputType: TextInputType.text,
               isObscured: _isObscured,
               textEditingController: _pwdController,
-              validator: (val) {},
+              validator: validatePassword(_pwdController.text),
+              // (value) {
+              //   if (value == null || value.isEmpty) {
+              //     return 'Please enter your password.';
+              //   } else if (value.length < 6) {
+              //     return 'Password is too short';
+              //   } else {
+              //     return null;
+              //   }
+              // },
             ),
             const SizedBox(
               height: 20,
